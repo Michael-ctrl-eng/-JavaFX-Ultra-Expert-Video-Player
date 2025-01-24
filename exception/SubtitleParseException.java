@@ -1,10 +1,23 @@
 package com.example.videoplayer.core.exception;
 
-public class PlaybackException extends RuntimeException {
-     public PlaybackException(String message) {
-         super(message);
+/**
+ * Custom exception for subtitle parsing errors.
+ */
+public class SubtitleParseException extends RuntimeException {
+    /**
+     * Constructor for SubtitleParseException.
+     * @param message Error message.
+     */
+    public SubtitleParseException(String message) {
+        super(message);
     }
-    public PlaybackException(String message, Throwable cause) {
+
+     /**
+     * Constructor for SubtitleParseException.
+      * @param message Error message.
+      * @param cause Cause of exception.
+    */
+    public SubtitleParseException(String message, Throwable cause) {
         super(message, cause);
     }
 }
