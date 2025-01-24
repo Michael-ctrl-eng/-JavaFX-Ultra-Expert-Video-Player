@@ -18,14 +18,14 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Build with Maven
-        working-directory: your/subdirectory/path  # Update this path to where your pom.xml is located
+        working-directory: path/to/your/pom  # Update this path to the actual directory containing your pom.xml
         run: mvn clean install
       - name: Run tests
-        working-directory: your/subdirectory/path  # Update this path to where your pom.xml is located
+        working-directory: path/to/your/pom  # Update this path to the actual directory containing your pom.xml
         run: mvn test
       - name: Code analysis
-        working-directory: your/subdirectory/path  # Update this path to where your pom.xml is located
+        working-directory: path/to/your/pom  # Update this path to the actual directory containing your pom.xml
         run: mvn verify
       - name: Dependency check
-        working-directory: your/subdirectory/path  # Update this path to where your pom.xml is located
+        working-directory: path/to/your/pom  # Update this path to the actual directory containing your pom.xml
         run: mvn dependency-check:check
