@@ -1,4 +1,4 @@
-```css
+css
 .button-style {
     -fx-background-color: #4CAF50;
     -fx-text-fill: white;
@@ -18,4 +18,3 @@
 .slider-style .track {
     -fx-background-color:  #4CAF50;
 }
-```
