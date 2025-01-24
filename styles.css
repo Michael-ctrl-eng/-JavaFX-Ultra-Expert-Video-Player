@@ -1,20 +1,94 @@
-css
+/* Global styles */
+
+* {
+    -fx-font-family: Arial, sans-serif;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+}
+
+body {
+    -fx-background-color: #f0f0f0;
+}
+
+/* Button styles */
+
 .button-style {
     -fx-background-color: #4CAF50;
     -fx-text-fill: white;
     -fx-padding: 10px 20px;
     -fx-font-size: 14px;
     -fx-border-radius: 5px;
+    -fx-cursor: hand;
 }
 
 .button-style:hover {
     -fx-background-color: #367C39;
 }
 
-.slider-style .thumb{
+.button-style:active {
+    -fx-background-color: #2E865F;
+}
+
+/* Slider styles */
+
+.slider-style {
+    -fx-background-color: #4CAF50;
+    -fx-track-fill: #4CAF50;
+    -fx-thumb-fill: white;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+}
+
+.slider-style .thumb {
     -fx-background-color: white;
+    -fx-border-radius: 5px;
 }
 
 .slider-style .track {
-    -fx-background-color:  #4CAF50;
+    -fx-background-color: #4CAF50;
+}
+
+/* Label styles */
+
+.label-style {
+    -fx-text-fill: #333;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
+}
+
+.label-style:hover {
+    -fx-text-fill: #666;
+}
+
+/* Text Field styles */
+
+.text-field-style {
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: #333;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+}
+
+.text-field-style:hover {
+    -fx-background-color: #e0e0e0;
+}
+
+/* Video Player styles */
+
+.video-player-style {
+    -fx-background-color: #4CAF50;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+}
+
+.video-player-style .video {
+    -fx-background-color: #4CAF50;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+}
+
+.video-player-style .controls {
+    -fx-background-color: #4CAF50;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
 }
