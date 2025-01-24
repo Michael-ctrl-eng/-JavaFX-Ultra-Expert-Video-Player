@@ -1,21 +1,19 @@
-```css
-.button-style {
-    -fx-background-color: #4CAF50;
-    -fx-text-fill: white;
-    -fx-padding: 10px 20px;
-    -fx-font-size: 14px;
-    -fx-border-radius: 5px;
-}
+ .button-style {
+     -fx-background-color: #4CAF50;
+     -fx-text-fill: white;
+     -fx-padding: 10px 20px;
+     -fx-font-size: 14px;
+     -fx-border-radius: 5px;
+ }
 
-.button-style:hover {
-    -fx-background-color: #367C39;
-}
+ .button-style:hover {
+     -fx-background-color: #367C39;
+ }
 
-.slider-style .thumb{
-    -fx-background-color: white;
-}
+ .slider-style .thumb{
+     -fx-background-color: white;
+ }
 
-.slider-style .track {
-    -fx-background-color:  #4CAF50;
-}
-```
+ .slider-style .track {
+     -fx-background-color:  #4CAF50;
+ }
