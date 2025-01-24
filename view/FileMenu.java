@@ -17,7 +17,7 @@ public class FileMenu {
 
     /**
      * Constructor for file menu
-     * @param presenter Application presenter
+     * @param presenter Application controller
      */
     public FileMenu(MainPresenter presenter) {
         this.menuBar = new MenuBar();
@@ -30,12 +30,12 @@ public class FileMenu {
             File file = fileChooser.showOpenDialog(null);
             if(Objects.nonNull(file)){
                 presenter.loadMedia(file)
-                        .subscribe(playerState -> {
+                         .subscribe(playerState -> {
 
-                                },
-                                error -> {
-                                    UIHelper.showAlert("Error","Error occurred", "Error loading media");
-                                  });
+                                  },
+                                 error -> {
+                                      UIHelper.showAlert("Error","Error occurred", "Error loading media");
+                                   });
              }
         });
         MenuItem openSubtitle = new MenuItem("Open Subtitle");
@@ -44,15 +44,15 @@ public class FileMenu {
             fileChooser.setTitle("Open Subtitle File");
             File file = fileChooser.showOpenDialog(null);
             if(Objects.nonNull(file)){
-               presenter.loadSubtitle(file)
+                presenter.loadSubtitle(file)
                         .subscribe(subtitles -> {
 
-                                },
-                                error -> {
-                                    UIHelper.showAlert("Error","Error occurred", "Error loading subtitle");
-                                }
+                                 },
+                                  error -> {
+                                      UIHelper.showAlert("Error","Error occurred", "Error loading subtitle");
+                                 }
                         );
-             }
+            }
         });
         fileMenu.getItems().addAll(openFile, openSubtitle);
         menuBar.getMenus().add(fileMenu);
