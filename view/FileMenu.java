@@ -14,55 +14,55 @@ import java.util.Objects;
  */
 public class FileMenu {
     private final MenuBar menuBar;
-
-    /**
-     * Constructor for file menu
-     * @param presenter Application controller
+      /**
+        * Constructor for file menu
+      * @param presenter Application presenter
      */
-    public FileMenu(MainPresenter presenter) {
-        this.menuBar = new MenuBar();
-        //File Menu
-        Menu fileMenu = new Menu("File");
-        MenuItem openFile = new MenuItem("Open");
-        openFile.setOnAction(e -> {
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.setTitle("Open Video File");
-            File file = fileChooser.showOpenDialog(null);
-            if(Objects.nonNull(file)){
-                presenter.loadMedia(file)
-                         .subscribe(playerState -> {
-
-                                  },
-                                 error -> {
-                                      UIHelper.showAlert("Error","Error occurred", "Error loading media");
-                                   });
-             }
-        });
-        MenuItem openSubtitle = new MenuItem("Open Subtitle");
-        openSubtitle.setOnAction(e -> {
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.setTitle("Open Subtitle File");
-            File file = fileChooser.showOpenDialog(null);
-            if(Objects.nonNull(file)){
-                presenter.loadSubtitle(file)
-                        .subscribe(subtitles -> {
+     public FileMenu(MainPresenter presenter) {
+          this.menuBar = new MenuBar();
+         //File Menu
+         Menu fileMenu = new Menu("File");
+          MenuItem openFile = new MenuItem("Open");
+        openFile.setId("openFile");
+          openFile.setOnAction(e -> {
+              FileChooser fileChooser = new FileChooser();
+               fileChooser.setTitle("Open Video File");
+              File file = fileChooser.showOpenDialog(null);
+               if(Objects.nonNull(file)){
+                    presenter.loadMedia(file)
+                            .subscribe(playerState -> {
 
                                  },
+                              error -> {
+                                  UIHelper.showAlert("Error","Error occurred", "Error loading media");
+                                 });
+              }
+         });
+         MenuItem openSubtitle = new MenuItem("Open Subtitle");
+         openSubtitle.setId("openSubtitle");
+           openSubtitle.setOnAction(e -> {
+              FileChooser fileChooser = new FileChooser();
+               fileChooser.setTitle("Open Subtitle File");
+                 File file = fileChooser.showOpenDialog(null);
+              if(Objects.nonNull(file)){
+                    presenter.loadSubtitle(file)
+                              .subscribe(subtitles -> {
+
+                                   },
                                   error -> {
                                       UIHelper.showAlert("Error","Error occurred", "Error loading subtitle");
-                                 }
-                        );
-            }
-        });
-        fileMenu.getItems().addAll(openFile, openSubtitle);
-        menuBar.getMenus().add(fileMenu);
-    }
-
+                                }
+                           );
+                 }
+         });
+          fileMenu.getItems().addAll(openFile, openSubtitle);
+         menuBar.getMenus().add(fileMenu);
+     }
     /**
      * Method to get the menu bar
-     * @return MenuBar instance
-     */
+    * @return MenuBar instance
+   */
     public MenuBar getMenu(){
         return menuBar;
     }
-}
+ }
