@@ -121,10 +121,10 @@ public class MainPresenterImpl implements MainPresenter {
     public Single<PlayerState> stop() {
         return playbackUseCase.stop();
     }
-    /**
+     /**
      * Observe the player state for changes
-     * @return Observable PlayerState instance.
-     */
+      * @return Observable PlayerState instance.
+      */
     @Override
     public Observable<PlayerState> observePlayerState() {
         return playbackUseCase.observePlayerState();
