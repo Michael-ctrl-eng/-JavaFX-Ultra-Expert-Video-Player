@@ -35,7 +35,7 @@ public class SubtitleComponent {
      * Setup subtitles for the component
      */
     private void setupSubtitles(){
-        presenter.observePlayerState()
+          presenter.observePlayerState()
                 .subscribe(playerState -> {
                             if(Objects.nonNull(playerState.subtitleText())) {
                                 subtitleText.setText(playerState.subtitleText());
