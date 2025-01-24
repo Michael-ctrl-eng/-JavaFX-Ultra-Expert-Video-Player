@@ -1,7 +1,9 @@
+```java
 package com.example.videoplayer.framework.utils;
 
 import io.reactivex.rxjava3.core.Scheduler;
 import io.reactivex.rxjava3.schedulers.Schedulers;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -10,6 +12,7 @@ import java.util.concurrent.TimeUnit;
  * ThreadManager class to manage thread executions
  */
 public class ThreadManager {
+
     private final ExecutorService backgroundExecutor;
     private final Scheduler backgroundScheduler;
 
@@ -43,3 +46,4 @@ public class ThreadManager {
         }
     }
 }
+```
