@@ -1,0 +1,9 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+     <suppress>
+         <notes><![CDATA[
+         File path cannot be resolved correctly and causes build failure in some environments.
+         ]]></notes>
+         <packageUrl regex="true">^pkg:maven/.*org\.owasp:dependency\-check\-core@.*$</packageUrl>
+    </suppress>
+ </suppressions>
