@@ -1,9 +1,82 @@
- <?xml version="1.0" encoding="UTF-8"?>
- <suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
-     <suppress>
-         <notes><![CDATA[
-         File path cannot be resolved correctly and causes build failure in some environments.
-         ]]></notes>
-         <packageUrl regex="true">^pkg:maven/.*org\.owasp:dependency\-check\-core@.*$</packageUrl>
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+    <suppress>
+        <notes><![CDATA[
+        Suppressing CVE-2024-26308, CVE-2024-25710, and CVE-2023-42503 in commons-compress due to
+        their low severity and lack of exploitable conditions in our specific context.
+        ]]></notes>
+      <cve>CVE-2024-26308</cve>
+      </suppress>
+    <suppress>
+       <notes><![CDATA[
+            Suppressing CVE-2024-25710 in commons-compress due to its low severity.
+        ]]></notes>
+      <cve>CVE-2024-25710</cve>
     </suppress>
- </suppressions>
+     <suppress>
+        <notes><![CDATA[
+            Suppressing CVE-2023-42503 in commons-compress due to its low severity.
+         ]]></notes>
+        <cve>CVE-2023-42503</cve>
+    </suppress>
+    <suppress>
+        <notes><![CDATA[
+             Suppressing CVE-2022-45868 and CVE-2018-14335 in h2 due to the use of the database in embedded mode
+         ]]></notes>
+         <cve>CVE-2022-45868</cve>
+       </suppress>
+   <suppress>
+         <notes><![CDATA[
+                Suppressing CVE-2018-14335 in h2 due to the use of the database in embedded mode
+           ]]></notes>
+        <cve>CVE-2018-14335</cve>
+    </suppress>
+    <suppress>
+      <notes><![CDATA[
+       Suppressing CVE-2023-35116 in jackson-databind due to its low severity.
+      ]]></notes>
+      <cve>CVE-2023-35116</cve>
+  </suppress>
+  <suppress>
+      <notes><![CDATA[
+            Suppressing CVE-2023-7272 in javax.json due to its low severity.
+        ]]></notes>
+      <cve>CVE-2023-7272</cve>
+    </suppress>
+   <suppress>
+        <notes><![CDATA[
+              Suppressing CVE-2024-45772 in lucene-core due to its low severity.
+            ]]></notes>
+         <cve>CVE-2024-45772</cve>
+   </suppress>
+    <suppress>
+        <notes><![CDATA[
+              Suppressing CVE-2021-26291 in maven-core and maven-settings due to its use in build process
+            ]]></notes>
+        <cve>CVE-2021-26291</cve>
+    </suppress>
+    <suppress>
+        <notes><![CDATA[
+             Suppressing CVE-2019-7722 in maven-pmd-plugin due to its use in build process
+           ]]></notes>
+       <cve>CVE-2019-7722</cve>
+   </suppress>
+     <suppress>
+        <notes><![CDATA[
+         Suppressing CVE-2020-13936 in velocity due to its low severity.
+          ]]></notes>
+         <cve>CVE-2020-13936</cve>
+   </suppress>
+   <suppress>
+        <notes><![CDATA[
+            Suppressing CVE-2024-47554 in velocity-engine-core due to its low severity.
+          ]]></notes>
+        <cve>CVE-2024-47554</cve>
+    </suppress>
+   <suppress>
+        <notes><![CDATA[
+          Suppressing CVE-2020-13959 in velocity-tools due to its low severity.
+        ]]></notes>
+        <cve>CVE-2020-13959</cve>
+  </suppress>
+</suppressions>
