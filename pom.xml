@@ -56,7 +56,7 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
             <version>5.5.0</version>
-           <scope>test</scope>
+            <scope>test</scope>
         </dependency>
        <!-- TestFX -->
        <dependency>
@@ -70,7 +70,7 @@
            <groupId>org.owasp</groupId>
            <artifactId>dependency-check-maven</artifactId>
            <version>8.4.0</version>
-       </dependency>
+        </dependency>
         <!-- Spotbugs-->
         <dependency>
             <groupId>com.github.spotbugs</groupId>
@@ -78,112 +78,117 @@
             <version>4.8.3.1</version>
         </dependency>
         <!-- PMD-->
-       <dependency>
-           <groupId>org.apache.maven.plugins</groupId>
-           <artifactId>maven-pmd-plugin</artifactId>
-            <version>3.21.2</version>
-           <type>maven-plugin</type>
-       </dependency>
-        <!-- Checkstyle -->
         <dependency>
-           <groupId>com.puppycrawl.tools</groupId>
-           <artifactId>checkstyle</artifactId>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-pmd-plugin</artifactId>
+            <version>3.21.2</version>
+            <type>maven-plugin</type>
+        </dependency>
+        <!-- Checkstyle -->
+       <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
            <version>10.12.6</version>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
-             <plugin>
-               <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
-                <configuration>
-                     <source>17</source>
-                      <target>17</target>
-                   </configuration>
-             </plugin>
-             <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-               <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.2.2</version>
-             </plugin>
+                 <artifactId>maven-compiler-plugin</artifactId>
+                 <version>3.11.0</version>
+               <configuration>
+                    <source>17</source>
+                   <target>17</target>
+                </configuration>
+           </plugin>
+           <plugin>
+               <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+               <version>3.2.2</version>
+            </plugin>
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>com.example.videoplayer.Main</mainClass>
+                   <mainClass>com.example.videoplayer.Main</mainClass>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-                <version>8.4.0</version>
+                 <version>8.4.0</version>
+                <configuration>
+                    <analyzers>
+                      <assembly>false</assembly>
+                     </analyzers>
+                </configuration>
                 <executions>
-                    <execution>
+                  <execution>
                         <goals>
                            <goal>check</goal>
                         </goals>
-                     </execution>
+                    </execution>
                 </executions>
-             </plugin>
+            </plugin>
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
                 <version>4.8.3.1</version>
-              <configuration>
+                <configuration>
                     <effort>Max</effort>
-                     <threshold>Low</threshold>
-                     <failOnError>true</failOnError>
+                    <threshold>Low</threshold>
+                    <failOnError>true</failOnError>
+                </configuration>
+              <executions>
+                    <execution>
+                        <goals>
+                             <goal>check</goal>
+                        </goals>
+                  </execution>
+              </executions>
+           </plugin>
+           <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.21.2</version>
+                <configuration>
+                     <rulesets>
+                        <ruleset>/rulesets/java/basic.xml</ruleset>
+                    </rulesets>
+                    <failOnViolation>true</failOnViolation>
+                </configuration>
+                <executions>
+                    <execution>
+                       <goals>
+                            <goal>check</goal>
+                         </goals>
+                    </execution>
+                </executions>
+           </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.3.1</version>
+                <dependencies>
+                   <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                       <artifactId>checkstyle</artifactId>
+                      <version>10.12.6</version>
+                   </dependency>
+               </dependencies>
+                 <configuration>
+                   <configLocation>checkstyle.xml</configLocation>
+                  <failsOnError>true</failsOnError>
                 </configuration>
               <executions>
                    <execution>
                        <goals>
-                           <goal>check</goal>
-                      </goals>
-                   </execution>
-              </executions>
-           </plugin>
-           <plugin>
-               <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.21.2</version>
-                <configuration>
-                   <rulesets>
-                     <ruleset>/rulesets/java/basic.xml</ruleset>
-                    </rulesets>
-                  <failOnViolation>true</failOnViolation>
-               </configuration>
-            <executions>
-                  <execution>
-                        <goals>
                             <goal>check</goal>
-                       </goals>
+                        </goals>
                    </execution>
-                </executions>
-            </plugin>
-           <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-               <artifactId>maven-checkstyle-plugin</artifactId>
-               <version>3.3.1</version>
-               <dependencies>
-                  <dependency>
-                        <groupId>com.puppycrawl.tools</groupId>
-                      <artifactId>checkstyle</artifactId>
-                       <version>10.12.6</version>
-                   </dependency>
-              </dependencies>
-             <configuration>
-                   <configLocation>checkstyle.xml</configLocation>
-                  <failsOnError>true</failsOnError>
-               </configuration>
-            <executions>
-                  <execution>
-                       <goals>
-                          <goal>check</goal>
-                       </goals>
-                    </execution>
                 </executions>
             </plugin>
         </plugins>
