@@ -1,10 +1,10 @@
 package com.example.videoplayer.ui.view;
 
 import com.example.videoplayer.adapter.presenter.MainPresenter;
- import com.example.videoplayer.ui.utils.UIHelper;
+import com.example.videoplayer.ui.utils.UIHelper;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
- import javafx.stage.Stage;
+import javafx.stage.Stage;
 
 /**
  * Main view class that represents the user interface
@@ -23,34 +23,35 @@ public class MainView {
     public MainView(MainPresenter presenter) {
         this.presenter = presenter;
         this.mediaViewComponent = new MediaViewComponent(presenter);
-         this.controls = new MediaControls(presenter);
-         this.fileMenu = new FileMenu(presenter);
-         this.subtitleComponent = new SubtitleComponent(presenter);
+        this.controls = new MediaControls(presenter);
+        this.fileMenu = new FileMenu(presenter);
+        this.subtitleComponent = new SubtitleComponent(presenter);
 
         // Handle the media load errors
-          presenter.observePlayerState().subscribe(playerState -> {
+         presenter.observePlayerState()
+                 .subscribe(playerState -> {
 
                         },
-                  error -> UIHelper.showAlert("Error","Error occurred", "Error Loading Media")
-        );
-
+                    error -> UIHelper.showAlert("Error","Error occurred", "Error Loading Media")
+               );
     }
+
     /**
-    * Sets up the layout and shows the stage
+     * Sets up the layout and shows the stage
      * @param stage Main application stage
      */
-   public void show(Stage stage) {
-       BorderPane root = new BorderPane();
-       root.setCenter(mediaViewComponent.getMediaView());
+    public void show(Stage stage) {
+        BorderPane root = new BorderPane();
+        root.setCenter(mediaViewComponent.getMediaView());
         root.setBottom(controls.getControlPanel());
-         root.setTop(fileMenu.getMenu());
-         root.getChildren().add(subtitleComponent.getSubtitleView());
-         Scene scene = new Scene(root, 800, 600);
+        root.setTop(fileMenu.getMenu());
+        root.getChildren().add(subtitleComponent.getSubtitleView());
+        Scene scene = new Scene(root, 800, 600);
         scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
         stage.setTitle("Expert Video Player");
         stage.setScene(scene);
         stage.show();
-         // Set actions to close window
+        // Set actions to close window
         stage.setOnCloseRequest(e -> presenter.stop());
     }
 }
